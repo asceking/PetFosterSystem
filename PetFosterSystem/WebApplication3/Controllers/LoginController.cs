@@ -58,7 +58,7 @@ namespace WebApplicationTest1
             using (OracleConnection oracle = new OracleConnection(conStr))
             {
                 oracle.Open();
-                UserServer.InsertUser(username, password,"13333333333","安徽省合肥市");
+               // UserServer.InsertUser(username, password,"13333333333","安徽省合肥市");
                 string Username = username;
                 string pwd= password;
                 string phoneNumber = "13333333333";
