@@ -62,14 +62,11 @@ namespace WebApplicationTest1
                 string Username = username;
                 string pwd= password;
                 string phoneNumber = "13333333333";
-                string Address = "安徽省合肥市";
+                string Address = "江苏省无锡市";
                 string UID = "-1";
                 try
                 {
-                    using (OracleConnection connection = new OracleConnection(conStr))
-                    {
-                        connection.Open();
-                        OracleCommand command = connection.CreateCommand();
+                        OracleCommand command = oracle.CreateCommand();
                         command.CommandType = CommandType.Text;
                         string account_status = "In Good Standing";
                         command.CommandText = "INSERT INTO user2 (user_id, user_name, password, phone_number, account_status, address) " +
@@ -92,22 +89,23 @@ namespace WebApplicationTest1
 
                             throw;
                         }
-                        connection.Close();
-                    }
                 }
                 catch (Exception ex)
                 {
                     // 处理异常
                     Console.WriteLine(ex.ToString());
                 }
-                if (UserManager.Login(username, password))
-                {
-                    respond = Ok();
-                }
-                else
-                {
-                    respond = BadRequest();
-                }
+                oracle.Close();
+                UserManager.Login(UID, password,connection:oracle);
+                //OracleConnection conn= new OracleConnection(conStr);
+                //if (UserManager.Login(username, password,conn))
+                //{
+                //    respond = Ok();
+                //}
+                //else
+                //{
+                //    respond = BadRequest();
+                //}
                 oracle.Close();
             }
             return respond;
