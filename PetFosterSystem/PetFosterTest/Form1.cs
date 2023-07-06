@@ -34,7 +34,7 @@ namespace PetFoster.Test
                 connection.Open();
                 string PASSWORD = PwdBox.Text;
                 string USER_ID = UIDBox.Text;
-                UserManager.Login(PASSWORD,USER_ID);
+                //UserManager.Login(PASSWORD,USER_ID);
                 connection.Close();
             }
 
