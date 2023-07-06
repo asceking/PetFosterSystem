@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetServerUtility", "PetServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetFosterTest", "PetFosterTest\PetFosterTest.csproj", "{1BE36BD6-A874-43E8-B7E9-94ECE6FCF31E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationTest1", "..\..\BackendTest\WebApplicationTest1\WebApplicationTest1\WebApplicationTest1.csproj", "{512273B8-543C-4919-816B-2ACE2F3A3742}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1BE36BD6-A874-43E8-B7E9-94ECE6FCF31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE36BD6-A874-43E8-B7E9-94ECE6FCF31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BE36BD6-A874-43E8-B7E9-94ECE6FCF31E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512273B8-543C-4919-816B-2ACE2F3A3742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512273B8-543C-4919-816B-2ACE2F3A3742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512273B8-543C-4919-816B-2ACE2F3A3742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512273B8-543C-4919-816B-2ACE2F3A3742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

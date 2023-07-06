@@ -31,10 +31,9 @@ namespace PetFoster.Test
                 
                 // 获取数据表
                 connection.Open();
-                PetData.USER2Row newrow = dataset1.USER2.NewUSER2Row();
-                newrow.PASSWORD = PwdBox.Text;
-                newrow.USER_ID = UIDBox.Text;
-                UserManager.Login(newrow);
+                string PASSWORD = PwdBox.Text;
+                string USER_ID = UIDBox.Text;
+                UserManager.Login(PASSWORD,USER_ID);
                 connection.Close();
             }
 

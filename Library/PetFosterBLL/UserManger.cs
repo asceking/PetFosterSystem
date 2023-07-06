@@ -10,7 +10,7 @@ using static PetFoster.Model.PetData;
 using PetFoster.DAL;
 using System.IO;
 using System.Text.RegularExpressions;
-
+using System.Data.OracleClient;
 namespace PetFoster.BLL
 {
     public class UserManager
@@ -18,7 +18,7 @@ namespace PetFoster.BLL
         public static string user = "\"C##PET\"";
         public static string pwd = "campus";
         public static string db = "localhost:1521/orcl";
-        private static string conStr = "User Id=" + user + ";Password=" + pwd + ";Data Source=" + db + ";"; // 替换为实际的数据库连接字符串
+        private static string conStr = "DATA SOURCE=localhost:1521/orcl;PASSWORD='campus';USER ID = '\"C##PET\"'"; // 替换为实际的数据库连接字符串
         static bool IsValidStatus(string status)
         {
             // 读取配置文件并加载状态
@@ -57,21 +57,21 @@ namespace PetFoster.BLL
         /// </summary>
         /// <param name="user">用户信息</param>
         /// <returns>是否登陆成功</returns>
-        public static bool Login(USER2Row user)
+        public static bool Login(string UID,string Password)
         {
             bool con = false;
-            using (OracleConnection connection = new OracleConnection(conStr))
+            using (System.Data.OracleClient.OracleConnection connection = new System.Data.OracleClient.OracleConnection(conStr))
             {
                 // 连接对象将在 using 块结束时自动关闭和释放资源
                 // 在此块中执行数据操作
                 connection.Open();
-                OracleCommand command = connection.CreateCommand();
-                User Candidate=UserServer.GetUser(user.USER_ID,user.PASSWORD,true);
+                System.Data.OracleClient.OracleCommand command = connection.CreateCommand();
+                User Candidate=UserServer.GetUser(UID, Password, true);
                 if(Candidate.Account_Status=="Banned")
                     Console.WriteLine("用户已经被封禁");
                 else if (Candidate.User_ID == "-1")
                     Console.WriteLine("UID不存在！");
-                else if (Candidate.Password != user.PASSWORD)
+                else if (Candidate.Password != Password)
                     Console.WriteLine("密码错误!");
                 else
                     Console.WriteLine($"恭喜你，{Candidate.User_Name},登陆成功!");
